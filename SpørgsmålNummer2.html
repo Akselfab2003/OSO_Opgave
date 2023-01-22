@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+ 
+<title>Spørgsmål</title>
+</head>
+<body>
+    <div class="question">
+        <h3 style="padding-top: 5px;">Du har valgt: Dårligt</h3>
+    </div>
+    <hr>
+    <h4 class="Underquestion">Kan du uddybe?</h4>
+    
+        <!-- <span class="TextForEmoji">Godt</span>
+        <span class="TextForEmoji" style="padding-top: 150px;">Neutral</span>
+        <span class="TextForEmoji" style="padding-top: 280px;">Dårligt</span> -->
+
+    
+    <div class="FlexContainer">
+    <div class="choice" id="Problemer der hjemme">Problemer der hjemme</div>
+    <div class="choice" id="Jeg er stresset">Jeg er stresset</div>
+    <div class="choice" id="Mobning/uvenskaber">Mobning/uvenskaber</div>
+    <div class="choice" id="Andet">Andet</div>
+    </div>
+    <div class="GoBack">
+        <div><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="vertical-align: middle;padding-bottom:5px;" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+          </svg> Gå Tilbage</div>
+    </div>
+</body>
+
+<style>
+    
+    .FlexContainer{
+        display: flex;
+        position: absolute;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+       
+        margin-top: 0px;
+        width: 300px;
+        margin-left: 9%;
+        height: 400px;
+    }
+    .FlexContainer > div{
+        width: 200px;
+        /* line-height: 75px; */
+        border-radius: 15px;
+        border-style: solid;
+        height: 50px;
+        margin: 20px;
+        font-size: 20px;
+        line-height: 50px;
+        vertical-align: middle;
+        text-align: center;
+        
+    }
+    .question{
+        width: 300px;
+       
+        text-align: center;
+        margin-left: 9%;
+        height: 100px;
+        font-size: 24px;
+        text-align: center;
+        border-radius: 25px;
+        border-color: black;
+        background-color: darkgray;
+       border-style: solid;
+    }
+    /* .TextForEmoji{
+    position: absolute;
+    top: 360px;
+    right: 261px;
+    font-size: 25px;
+    text-align: left;
+    } */
+    .Underquestion{
+        text-align: center;
+        font-size: 30px;
+    }
+    .GoBack{
+        position: absolute;
+        top: 800px;
+        font-size: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        
+    }
+</style>
+
+ <script>
+    $(document).ready(function(){
+       $(".choice").click(function(){
+        var CurrentElementReason = $(this).attr("id");
+        SetCookie(CurrentElementReason)
+            window.location.href = "Færdig.html";
+       })
+       $(".GoBack").click(function(){
+        window.location.href = "Spørgsmål.html";
+       })
+
+
+    })  
+        function SetCookie(CurrentElement){
+            
+            var Cookie = GetCookie();
+            
+            
+                // sessionStorage['CurrentStudents'] +=   JSON.stringify(obj);
+                var currentJson = Cookie
+                currentJson.Reason = CurrentElement;
+                document.cookie = "CurrentStudent=" + JSON.stringify(currentJson);
+            
+
+        }
+
+
+           
+          
+        function GetCookie(){
+        var Value = document.cookie.split('; ')
+        .find((row) => row.startsWith("CurrentStudent="))
+        ?.split('=')[1];
+        if(Value == undefined){
+           return undefined
+        }
+        else{
+            return JSON.parse(Value);
+            }
+            }
+ </script>
+</html>

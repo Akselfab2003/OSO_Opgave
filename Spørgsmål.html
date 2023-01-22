@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+ 
+<title>Spørgsmål</title>
+</head>
+<body>
+    <div class="question">
+        <h3 style="padding-top: 5px;">Hvordan har du det?</h3>
+    </div>
+   
+        <span class="TextForEmoji">Godt</span>
+        <span class="TextForEmoji" style="padding-top: 150px;">Neutral</span>
+        <span class="TextForEmoji" style="padding-top: 280px;">Dårligt</span>
+
+    
+    
+    <div class="FlexContainer">
+    <div class="choice" id="Godt">👍</div>
+    <div class="choice" id="Neutralt">👈</div>
+    <div class="choice" id="Dårligt">👎</div>
+    </div>
+</body>
+
+<style>
+    
+    .FlexContainer{
+        display: flex;
+        position: absolute;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+       
+        margin-top: 100px;
+        width: 300px;
+        margin-left: 9%;
+        height: 600px;
+    }
+    .FlexContainer > div{
+        width: 100px;
+       
+        margin: 40px;
+        line-height: 75px;
+        font-size: 90px;
+        text-align: center;
+        
+    }
+    .question{
+        width: 300px;
+       
+        text-align: center;
+        margin-left: 9%;
+        height: 100px;
+        font-size: 24px;
+        text-align: center;
+        border-radius: 25px;
+        border-color: black;
+        background-color: darkgray;
+       border-style: solid;
+    }
+    .TextForEmoji{
+    position: absolute;
+    top: 360px;
+    right: 261px;
+    font-size: 25px;
+    text-align: left;
+    }
+</style>
+
+ <script>
+    $(document).ready(function(){
+       $(".choice").click(function(){
+        var CurrentElement = $(this).attr("id");
+        SetCookie(CurrentElement)
+        if(CurrentElement == "Dårligt"){
+            window.location.href = "SpørgsmålNummer2.html";
+        }
+        else{
+            window.location.href = "Færdig.html";
+        }
+       })
+    })  
+        function SetCookie(CurrentElement){
+            var obj =  {
+                    mood : CurrentElement,
+                    Reason: ""
+            };
+            var Cookie = GetCookie();
+            if(Cookie == undefined || Cookie.Length == 0){
+               document.cookie = "CurrentStudent="+JSON.stringify(obj);
+            }
+            else{
+                // sessionStorage['CurrentStudents'] +=   JSON.stringify(obj);
+                var currentJson = Cookie
+                currentJson.mood = CurrentElement;
+                document.cookie = "CurrentStudent=" + JSON.stringify(currentJson);
+            }
+
+        }
+
+
+           
+          
+        function GetCookie(){
+        var Value = document.cookie.split('; ')
+        .find((row) => row.startsWith("CurrentStudent="))
+        ?.split('=')[1];
+        if(Value == undefined){
+           return undefined
+        }
+        else{
+            return JSON.parse(Value);
+            }
+            }
+ </script>
+</html>

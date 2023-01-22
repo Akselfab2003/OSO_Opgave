@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="Login">
+        <form action="" id="formForNext"></form>
+        <form action="" id="formForBack"></form>
+        <div class="logo" style="font-size: 30px;padding-left: 15px; font-weight: 600;"><span style="color: #015ab3;">Uni</span>login</div>
+            <label for="inputUser" class="form-label" style="padding-left: 17px;">Adgangskode</label>
+            <input type="text" form="formForNext" class="form-control InputBar" id="inputUser" style="width:90%;right:20px !important; position: absolute;">
+            <button type="submit" form="formForBack" class="GOback"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+              </svg> Tilbage</button> 
+            <button type="submit" form="formForNext" class="SubmitButton">Næste</button> 
+            
+            <hr class="hrstyle">
+            
+            <img src="Styrelsenforpatientsikkerhed.png" class="imgForStyr" alt="Børne- og Undervisningsministeriet - Styrelsen for IT og læring">
+
+
+            </div>
+        </div>
+    <style>
+        .Login {
+            position:relative;
+            margin-top: 70%;
+        }
+        .InputBar{
+            -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #747474;
+    border-radius: 4px;
+    color: #1a1a1a;
+   
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    padding: calc(3px - 1px) calc(16px - 1px);
+    width: 100%;
+    max-width: 32rem;
+   
+    text-align: left;
+        }
+        .form-label{
+            display: inline-block;
+    font-size: 1.0rem;
+    line-height: 2.6rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-transform: none;
+        }
+    .SubmitButton{
+        position: absolute;
+        top:150px;
+       width: 45%;
+       right: 30px;
+        color: #fff;
+    background-color: #0059b3;
+    border-color: #454545;
+    border: 2px solid #454545;
+    border-radius: 4px;
+    line-height: 2.4rem;
+    text-align: center;
+    margin-top: px;
+}
+.hrstyle{
+    margin-top: 24px;
+    top: 100px;
+    position: relative;
+    width: 90%;
+   
+    box-sizing: content-box;
+    font-size: 1.6rem;
+    
+    
+    color: #000000;
+    left: 19px; 
+    
+}
+
+.imgForStyr {
+    position: relative;
+    top:100px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+
+.GOback{
+    position: absolute;
+    top:150px;
+    left: 30px;
+    width: 35%;
+    color: #1a1a1a;
+    background-color: #dcdcdc;
+    border-color: #454545;
+    border: 2px solid #454545;
+    border-radius: 4px;
+    line-height: 2.4rem;
+    text-align: center;
+    margin-top: px;
+}
+</style>
+<script>
+    $(document).ready(function(){
+    $('#formForNext').on('submit',function(){
+        
+        window.location.href ="Spørgsmål.html"
+        return false;
+    })
+
+    $('#formForBack').on('submit',function(){
+        
+        window.location.href ="Site2.html"
+        return false;
+    })
+    });
+</script>
+</body>
+</html>
